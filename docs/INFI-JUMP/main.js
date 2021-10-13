@@ -103,19 +103,17 @@ function update() {
     globalVel = 0;
     tickElapsed = 0;
     multiplier = 1;
-
-    text("MUL x" + multiplier.toFixed(1), G.WIDTH * 0.5 - 10, 10);
-
+    
     //initial platform
     platforms = [];
     platforms.push({ pos: vec(22, G.HEIGHT * 0.5 + 3), vel: vec(globalVel, 0), active: false});
-    platforms.push({ pos: vec(190, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
-    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(190, rnd(100) + 40), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(100) + 40), vel: vec(globalVel, 0), active: true});
   
     //calculate fuel
     let a = Math.abs(platforms[1].pos.x - platforms[0].pos.x); 
     let b = Math.abs(platforms[1].pos.y - platforms[0].pos.y);
-    let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.2));
+    let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.5));
 
     player.fuelSize = c * 0.6;
     player.fuel = player.fuelSize;
@@ -146,6 +144,7 @@ function update() {
 
   color("black");
   text("MUL x" + multiplier.toFixed(1), G.WIDTH * 0.5 - 22, 10);
+  text("VER 1.0.16", G.WIDTH - 58, G.HEIGHT - 4);
 
   //draw player
   char("a", player.pos);
@@ -159,7 +158,7 @@ function update() {
   if(input.isPressed && ticks > 10 && player.fuel > 0){
     play("jump");
     player.fuel--;
-    player.vel.y -= 0.04;
+    player.vel.y -= 0.045;
     globalVel += -0.02;
     tickElapsed *= 0.95;
 
@@ -195,7 +194,7 @@ function update() {
         //calculate fuel
         let a = Math.abs(platforms[1].pos.x - platforms[0].pos.x); 
         let b = Math.abs(platforms[1].pos.y - platforms[0].pos.y);
-        let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.2));
+        let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.5));
 
         player.fuelSize = c * (0.6 - 0.05 * (difficulty > 4 ? 4 : difficulty));
         player.fuel = player.fuelSize;
@@ -238,7 +237,7 @@ function update() {
   //platform removal
   if(platforms[0].pos.x < -50){
     platforms.shift();
-    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(100) + 40), vel: vec(globalVel, 0), active: true});
   }
 
   platforms.forEach((p) => {
