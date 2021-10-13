@@ -109,8 +109,8 @@ function update() {
     //initial platform
     platforms = [];
     platforms.push({ pos: vec(22, G.HEIGHT * 0.5 + 3), vel: vec(globalVel, 0), active: false});
-    platforms.push({ pos: vec(190, rnd(100) + 20), vel: vec(globalVel, 0), active: true});
-    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(100) + 20), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(190, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
   
     //calculate fuel
     let a = Math.abs(platforms[1].pos.x - platforms[0].pos.x); 
@@ -238,7 +238,7 @@ function update() {
   //platform removal
   if(platforms[0].pos.x < -50){
     platforms.shift();
-    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(100) + 20), vel: vec(globalVel, 0), active: true});
+    platforms.push({ pos: vec(platforms[1].pos.x + 171, rnd(120) + 20), vel: vec(globalVel, 0), active: true});
   }
 
   platforms.forEach((p) => {
