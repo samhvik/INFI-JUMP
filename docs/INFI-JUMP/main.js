@@ -115,7 +115,7 @@ function update() {
     //calculate fuel
     let a = Math.abs(platforms[1].pos.x - platforms[0].pos.x); 
     let b = Math.abs(platforms[1].pos.y - platforms[0].pos.y);
-    let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+    let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.2));
 
     player.fuelSize = c * 0.6;
     player.fuel = player.fuelSize;
@@ -195,7 +195,7 @@ function update() {
         //calculate fuel
         let a = Math.abs(platforms[1].pos.x - platforms[0].pos.x); 
         let b = Math.abs(platforms[1].pos.y - platforms[0].pos.y);
-        let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+        let c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2.2));
 
         player.fuelSize = c * (0.6 - 0.05 * (difficulty > 4 ? 4 : difficulty));
         player.fuel = player.fuelSize;
