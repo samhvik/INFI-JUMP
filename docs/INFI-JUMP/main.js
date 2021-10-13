@@ -145,7 +145,7 @@ function update() {
   rect(2, 30 + (100 - fuelScaled), 5, fuelScaled);
 
   color("black");
-  text("MUL x" + multiplier.toFixed(1), G.WIDTH * 0.5 - 25, 10);
+  text("MUL x" + multiplier.toFixed(1), G.WIDTH * 0.5 - 22, 10);
 
   //draw player
   char("a", player.pos);
